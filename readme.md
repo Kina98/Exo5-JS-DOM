@@ -46,7 +46,7 @@
    ```html
     <div class="col-xl-4 col-lg-4 col-sm-6 col-12 my-2">
       <div class="card h-100">
-        <img class="card-img-top" src="datasExperiencessUrl" alt="datasExperiencessName">
+        <img class="card-img-top" src="datasExperiencessLink" alt="datasExperiencessName">
         <div class="card-body w-100 px-0">
           <h2 class="card-title mt-0 mb-4 text-center">datasExperiencessName</h2>
           <ul class="list-unstyled w-100 d-flex justify-content-center flex-wrap">

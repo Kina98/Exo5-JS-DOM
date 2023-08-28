@@ -59,7 +59,7 @@ for (let i = 0; i < socialClass.length; i++) {
 // 6.
 const idWork = document.getElementById('works');
 
-function travail(element2, datas) {
+
     for (let i = 0; i < datas.works.length; i++) {
         const div1 = document.createElement('div');
         div1.classList = "col-xl-4 col-lg-4 col-sm-6 col-12 my-2";
@@ -67,7 +67,12 @@ function travail(element2, datas) {
         const card = document.createElement('div');
         card.classList = 'card';
         div1.append(card);
-        card.append.element2.innerHTML += `<img src=${datas.works[i].preview} alt=${datas.works[i].name}></img>`;
+        
+        const image = document.createElement('img');
+        image.classList = "card-img-top";
+        image.src = datas.works[i].preview;
+        image.alt = datas.works[i].name;
+        card.append(image);
         
         const cardBody = document.createElement('div');
         cardBody.classList = "card-body w-100 px-0";
@@ -75,13 +80,22 @@ function travail(element2, datas) {
 
         const h2 = document.createElement('h2');
         h2.classList = "card-title mt-0 mb-4 text-center";
-        h2.textContent = datas.works.name;
+        h2.textContent = datas.works[i].name;
         cardBody.append(h2);
 
         const ul = document.createElement('ul');
         ul.classList = "list-unstyled w-100 d-flex justify-content-center flex-wrap ";
         cardBody.append(ul);
-        ul.append.element2.innerHTML += `<li><span>${datas.works[i].technology}</span></li>`;
+        for (let j = 0; j < datas.works[i].technology.length; j++) {
+            const li = document.createElement('li');
+            const span = document.createElement('span');
+            span.classList = "card-link";
+            span.textContent = datas.works[i].technology[j];
+            li.append(span);
+            ul.append(li);
+            
+        }
+        
 
         const row = document.createElement('div');
         row.classList = "row w-100";
@@ -91,16 +105,60 @@ function travail(element2, datas) {
         divFlex.classList = "d-flex justify-content-center";
         row.append(divFlex);
 
-        divFlex.append.element2.innerHTML += `<a href=${datas.works[i].url} class="text-decoration-none px-4 py-3 mt-2 rounded">See Project</a>`
+        const lien = document.createElement('a');
+        lien.classList = "text-decoration-none px-4 py-3 mt-2 rounded";
+        lien.href = datas.works[i].url;
+        lien.textContent = "See Project";
+        divFlex.append(lien);
 
+        idWork.append(div1);
     }
-}
-for (let i = 0; i < works.length; i++) {
-    works[i].innerHTML = " ";
-    travail(works[i], datas);
+    
+
+// 7.
+const idExperience = document.getElementById('experiences');
+
+for (let i = 0; i < datas.experiences.length; i++) {
+    const divCol = document.createElement('div');
+    divCol.classList = "col-xl-4 col-lg-4 col-sm-6 col-12 my-2";
+    console.log(divCol);
+
+    const divCard = document.createElement('div');
+    divCard.classList = "card h-100";
+    divCol.append(divCard);
+
+    const image2 = document.createElement('img');
+    image2.classList = "card-img-top";
+    image2.src = datas.experiences[i].link;
+    image2.alt = datas.experiences[i].name;
+    divCard.append(image2);
+
+    const cardBody2 = document.createElement('div');
+    cardBody2.classList = "card-body w-100 px-0";
+    divCard.append(cardBody2);
+
+    const titre = document.createElement('h2');
+    titre.classList = "card-title mt-0 mb-4 text-center";
+    titre.textContent = datas.experiences[i].name;
+    cardBody2.append(titre);
+
+    const list_ul = document.createElement('ul');
+    list_ul.classList = "list-unstyled w-100 d-flex justify-content-center flex-wrap";
+    cardBody2.append(list_ul);
+    for (let j = 0; j < datas.experiences[i].technology.length; j++) {
+        const list_li = document.createElement('li');
+        const span2 = document.createElement('span');
+        span2.classList = "card-link";
+        span2.textContent = datas.experiences[i].technology[j];
+        list_li.append(span2);
+        list_ul.append(list_li);
+        
+    }
+    idExperience.append(divCol);
     
 }
 
-// 7.
 
 // 8.
+const mail = document.getElementById('mail');
+mail.textContent = datas.email;
