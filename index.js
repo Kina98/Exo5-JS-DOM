@@ -24,24 +24,24 @@
 // link: string,
 // technology: [Techo, Techno, ...]
 
-// 1.
+// 1. selection et modification du contenu h1 qui a id fullName
     const fullName = document.getElementById('fullName');
     fullName.textContent = "Hey, I'm datas " + datas.fullname;
 
-// 2.
+// 2. selection et modification du contenu h1 qui a id profil
     const profil = document.getElementById('profil');
     profil.textContent = datas.profil;
 
-// 3.
+// 3. selection et modification du contenu p qui a id description
     const description = document.getElementById('description');
     description.textContent = datas.description;
 
-// 4.
+// 4. selection et modification du contenu img qui a id picture
     const img = document.getElementById('picture');
     const src = img.attributes[0];
     src.value = datas.picture;
 
-// 5.
+// 5. Sélectionnez tous les éléments possèdant la classe socials 
 const socialClass = document.getElementsByClassName('socials');
 
 function listSocial(element1, datas) {
@@ -56,7 +56,7 @@ for (let i = 0; i < socialClass.length; i++) {
 }
 
 
-// 6.
+// 6. Sélectionnez tous les éléments possèdant l'identifiant works
 const idWork = document.getElementById('works');
 
 
@@ -115,7 +115,7 @@ const idWork = document.getElementById('works');
     }
     
 
-// 7.
+// 7. Sélectionnez tous les éléments possèdant l'identifiant experiences 
 const idExperience = document.getElementById('experiences');
 
 for (let i = 0; i < datas.experiences.length; i++) {
@@ -159,6 +159,6 @@ for (let i = 0; i < datas.experiences.length; i++) {
 }
 
 
-// 8.
+// 8. selection et modification de l'element h1 qui a id mail
 const mail = document.getElementById('mail');
 mail.textContent = datas.email;
