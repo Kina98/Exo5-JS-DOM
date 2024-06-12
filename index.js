@@ -58,27 +58,29 @@ for (let i = 0; i < socialClass.length; i++) {
 
 // 6. Sélectionnez tous les éléments possèdant l'identifiant works
 const idWork = document.getElementById('works');
-for (let i = 0; i < datas.works.length; i++) {
-    idWork.innerHTML += 
-`<div class="col-xl-4 col-lg-4 col-sm-6 col-12 my-2">
-    <div class="card">
-      <img class="card-img-top" src="${datas.works[i].preview}" alt="${datas.works[i].name}">
-      <div class="card-body w-100 px-0">
-        <h2 class="card-title mt-0 mb-4 text-center">${datas.works[i].name}</h2>
-        <ul class="list-unstyled w-100 d-flex justify-content-center flex-wrap ">
-        <li>
-              <span class="card-link">${datas.works[i].technology}</span>
-            </li>
-        </ul>
-        <div class="row w-100">
-          <div class="d-flex justify-content-center">
-            <a href="${datas.works[i].url}" class="text-decoration-none px-4 py-3 mt-2 rounded">See Project</a>
+
+datas.works.forEach(work => {
+  let technologies = work.technology.map(tech => `<span class="card-link">${tech}</span>`).join(' ');
+
+  idWork.innerHTML += 
+  `<div class="col-xl-4 col-lg-4 col-sm-6 col-12 my-2">
+      <div class="card">
+        <img class="card-img-top" src="${work.preview}" alt="${work.name}">
+        <div class="card-body w-100 px-0">
+          <h2 class="card-title mt-0 mb-4 text-center">${work.name}</h2>
+          <ul class="list-unstyled w-100 d-flex justify-content-center flex-wrap ">
+              <li>${technologies}</li>
+          </ul>
+          <div class="row w-100">
+            <div class="d-flex justify-content-center">
+              <a href="${work.url}" class="text-decoration-none px-4 py-3 mt-2 rounded">See Project</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>`
-}
+    </div>`;
+});
+
 
 
     // for (let i = 0; i < datas.works.length; i++) {
@@ -142,7 +144,6 @@ const idExperience = document.getElementById('experiences');
 for (let i = 0; i < datas.experiences.length; i++) {
     const divCol = document.createElement('div');
     divCol.classList = "col-xl-4 col-lg-4 col-sm-6 col-12 my-2";
-    console.log(divCol);
 
     const divCard = document.createElement('div');
     divCard.classList = "card h-100";
